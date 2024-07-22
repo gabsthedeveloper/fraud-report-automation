@@ -1,4 +1,4 @@
-# Selenium
+# Report Fraud Automation
 This project was created to help me learn Selenium in Python.
 
 ## Background
