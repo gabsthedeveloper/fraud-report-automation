@@ -66,9 +66,11 @@ def fill_out_second_page(driver):
     input_element.send_keys(config.suspect['city'])
 
     # Approximate Age
-    input_element = driver.find_element(By.XPATH, "//input[@id='input-49']")
-    approximate_age = date.today().year - config.suspect['approximate_birth_year']
-    input_element.send_keys(approximate_age)
+    approximate_birth_year = config.suspect['approximate_birth_year']
+    if approximate_birth_year:
+        input_element = driver.find_element(By.XPATH, "//input[@id='input-49']")
+        approximate_age = date.today().year - approximate_birth_year
+        input_element.send_keys(approximate_age)
 
     # What leads you to believe the person is committing fraud?
     input_element = driver.find_element(By.XPATH, "//textarea[@id='input-51']")
