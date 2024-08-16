@@ -5,4 +5,4 @@ This project was created to learn Selenium using Python. Thinking of a real life
 ## Files
 **report_general_fraud.py** - Automation to report a company paying 'under the table' <br />
 **report_unemployment_fraud.py** - Automation to report a person faking unemployment <br />
-**config.py** - Sample config file, which stores sensitive information used to fill out forms
+**config.py** - Sample config file, which is used to store sensitive information to fill out forms
