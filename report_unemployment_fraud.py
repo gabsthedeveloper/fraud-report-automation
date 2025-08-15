@@ -18,21 +18,21 @@ def fill_out_first_page(driver):
     )
 
     # Is this a new fraud report or an update? New
-    radio_button = driver.find_element(By.XPATH, "//label[@for='radio-0-5']//span[@class='slds-radio_faux']")
+    radio_button = driver.find_element(By.XPATH, "//label[@for='radio-0-6']//span[@class='slds-radio_faux']")
     radio_button.click()
 
     # Does your report include identity theft? No
-    radio_button = driver.find_element(By.XPATH, "//label[@for='radio-1-6']//span[@class='slds-radio_faux']")
+    radio_button = driver.find_element(By.XPATH, "//label[@for='radio-1-7']//span[@class='slds-radio_faux']")
     radio_button.click()
 
     # To which EDD program does your report relate? Unemployment
-    dropdown_button = driver.find_element(By.XPATH, "//button[@id='combobox-button-8']")
+    dropdown_button = driver.find_element(By.XPATH, "//button[@id='combobox-button-9']")
     dropdown_button.click()
-    dropdown_option = driver.find_element(By.XPATH, "//span[@class='slds-truncate'][normalize-space()='Unemployment']")
+    dropdown_option = driver.find_element(By.XPATH, "//span[normalize-space()='Unemployment']")
     dropdown_option.click()
 
     # Are you an employer? No
-    radio_button = driver.find_element(By.XPATH, "//label[@for='radio-1-12']//span[@class='slds-radio_faux']")
+    radio_button = driver.find_element(By.XPATH, "//label[@for='radio-1-13']//span[@class='slds-radio_faux']")
     radio_button.click()
 
     # Continue to next page
@@ -48,36 +48,36 @@ def fill_out_second_page(driver):
     )
 
     # First Name
-    input_element = driver.find_element(By.XPATH, "//input[@id='input-17']")
+    input_element = driver.find_element(By.XPATH, "//input[@id='input-18']")
     input_element.send_keys(config.suspect['first_name'])
 
     # Last Name
-    input_element = driver.find_element(By.XPATH, "//input[@id='input-21']")
+    input_element = driver.find_element(By.XPATH, "//input[@id='input-22']")
     input_element.send_keys(config.suspect['last_name'])
 
     # Gender
-    dropdown_button = driver.find_element(By.XPATH, "//button[@id='combobox-button-27']")
+    dropdown_button = driver.find_element(By.XPATH, "//button[@id='combobox-button-30']")
     dropdown_button.click()
-    dropdown_option = driver.find_element(By.XPATH, f"//span[@class='slds-truncate'][normalize-space()='{config.suspect['gender']}']")
+    dropdown_option = driver.find_element(By.XPATH, f"//span[normalize-space()='{config.suspect['gender']}']")
     dropdown_option.click()
 
     # City
-    input_element = driver.find_element(By.XPATH, "//input[@id='input-33']")
+    input_element = driver.find_element(By.XPATH, "//input[@id='input-36']")
     input_element.send_keys(config.suspect['city'])
 
     # Approximate Age
     approximate_birth_year = config.suspect['approximate_birth_year']
     if approximate_birth_year:
-        input_element = driver.find_element(By.XPATH, "//input[@id='input-49']")
+        input_element = driver.find_element(By.XPATH, "//input[@id='input-52']")
         approximate_age = date.today().year - approximate_birth_year
         input_element.send_keys(approximate_age)
 
     # What leads you to believe the person is committing fraud?
-    input_element = driver.find_element(By.XPATH, "//textarea[@id='input-51']")
+    input_element = driver.find_element(By.XPATH, "//textarea[@id='input-54']")
     input_element.send_keys(config.fraud_reason)
 
     # Is there any additional information you would like to provide?
-    input_element = driver.find_element(By.XPATH, "//textarea[@id='input-105']")
+    input_element = driver.find_element(By.XPATH, "//textarea[@id='input-108']")
     input_element.send_keys(config.additional_information)
 
     # Continue to next page
